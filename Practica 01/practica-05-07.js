@@ -20,7 +20,7 @@ function comprobar(frase){
     }
 }
 function leer(){
-    var cadena=document.forms["form-letras"].elements.nombre.value;
+    var cadena=document.forms["form-letras"].elements.nombre.value.toLowerCase();
     comprobar(cadena);
 }
 function iniciar(){
