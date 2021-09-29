@@ -2,7 +2,7 @@ window.onload=iniciar;
 
 function comprobar(frase){
     var salida=document.forms["form-letras"].elements.mensaje;
-    var letras=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z","º","ª"," ","-"];
+    var letras=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z","º","ª"," ","-","á","é","í","ó","ú"];
     if(frase.length<3){
         salida.value="Nombre demasiado corto";
     }
