@@ -1,16 +1,27 @@
 window.onload=iniciar;
 
-function comprobar(frase,subcadena){
-    var reg = new RegExp(subcadena,"g");
-    var contar=(frase.match(reg)||[]).length;
-    
+function comprobar(frase){
     var salida=document.forms["form-letras"].elements.mensaje;
-    salida.value=contar;
+    var letras=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z","º","ª"," ","-"];
+    if(frase.length<3){
+        salida.value="Nombre demasiado corto";
+    }
+    else if(frase.length>27){
+        salida.value="Nombre demasiado largo";
+    }
+    else if(letras.indexOf(frase.charAt(0))==-1){
+        salida.value="Tiene que comenzar por letra";
+    }
+    else if(letras.indexOf(frase.charAt(frase.length-1))==-1){
+        salida.value="Tiene que acabar por letra";
+    }
+    else{
+        salida.value="Nombre válido";
+    }
 }
 function leer(){
-    var cadena=document.forms["form-letras"].elements.cadena.value;
-    var subcadena=document.forms["form-letras"].elements.vocalsub.value;
-    comprobar(cadena, subcadena);
+    var cadena=document.forms["form-letras"].elements.nombre.value;
+    comprobar(cadena);
 }
 function iniciar(){
     document.forms["form-letras"].elements.boton.onclick=leer;
